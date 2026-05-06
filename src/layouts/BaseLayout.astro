@@ -2,6 +2,7 @@
 import "../css/global.css";
 import "../css/styles.css";
 const { title = "Jack Estes" } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
@@ -14,15 +15,15 @@ const { title = "Jack Estes" } = Astro.props;
   <body>
     <header class="site-header">
         <div class="site-header-inner">
-            <a href="/" class="logo">JE</a>
+            <a href={base} class="logo">JE</a>
 
             <nav class="site-nav">
-            <a href="/">Home</a>
-            <a href="/html/resume.html">Resume</a>
-            <a href="/html/side-projects.html">Side Projects</a>
-            <a href="/html/about-me.html">About Me</a>
-            <a href="/html/games.html">Games</a>
-            <a href="/html/cafe.html">Estes Cafe</a>
+                <a href={base}>Home</a>
+                <a href={`${base}html/resume.html`}>Resume</a>
+                <a href={`${base}html/side-projects.html`}>Side Projects</a>
+                <a href={`${base}html/about-me.html`}>About Me</a>
+                <a href={`${base}html/games.html`}>Games</a>
+                <a href={`${base}html/cafe.html`}>Estes Cafe</a>
             </nav>
         </div>
     </header>
