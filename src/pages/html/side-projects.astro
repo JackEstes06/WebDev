@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Side Projects">
@@ -47,10 +48,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </ul>
 
         <div class="media-grid">
-          <img src={`${base}assets/img/characters.png"} alt="book characters" />
-          <img src={`${base}assets/img/map.png"} alt="book map" />
-          <img src={`${base}assets/img/outline.png"} alt="book outline" />
-          <img src={`${base}assets/img/powerProgression.png"} alt="book power progression" />
+          <img src={`${base}assets/img/characters.png`} alt="book characters" />
+          <img src={`${base}assets/img/map.png`} alt="book map" />
+          <img src={`${base}assets/img/outline.png`} alt="book outline" />
+          <img src={`${base}assets/img/powerProgression.png`} alt="book power progression" />
         </div>
 
         <h3>Helpful Links for Writing Books</h3>
@@ -101,9 +102,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <p>Here is what my pi-hole looks like. It requires that you have a raspberry pi or some computer that runs linux.</p>
 
         <div class="media-grid">
-          <img src={`${base}assets/img/my-pi-w-pihole-on-it.png"} alt="my-pi-w-pihole-on-it" />
-          <img src={`${base}assets/img/pihole-login.png"} alt="pihole-login" />
-          <img src={`${base}assets/img/my-pihole.png"} alt="my-pihole" />
+          <img src={`${base}assets/img/my-pi-w-pihole-on-it.png`} alt="my-pi-w-pihole-on-it" />
+          <img src={`${base}assets/img/pihole-login.png`} alt="pihole-login" />
+          <img src={`${base}assets/img/my-pihole.png`} alt="my-pihole" />
         </div>
       </section>
 
@@ -142,16 +143,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <h3>My Homebrew</h3>
 
         <div class="media-grid">
-          <img src={`${base}assets/img/homebrew-app.jpg"} alt="homebrew-app" />
-          <img src={`${base}assets/img/homebrew-apps-1.jpg"} alt="homebrew-apps-1" />
-          <img src={`${base}assets/img/homebrew-apps-2.jpg"} alt="homebrew-apps-2" />
-          <img src={`${base}assets/img/homebrew-apps-3.jpg"} alt="homebrew-apps-3" />
-          <img src={`${base}assets/img/mario-kart-mod.jpg"} alt="mario-kart-mod" />
-          <img src={`${base}assets/img/gba-emulator-3.jpg"} alt="gba-emulator-3" />
-          <img src={`${base}assets/img/gba-emulator-2.jpg"} alt="gba-emulator-2" />
-          <img src={`${base}assets/img/gba-emulator-1.jpg"} alt="gba-emulator-1" />
-          <img src={`${base}assets/img/wii-apps.jpg"} alt="wii-apps" />
-          <img src={`${base}assets/img/wii-games.gif"} alt="wii-games" />
+          <img src={`${base}assets/img/homebrew-app.jpg`} alt="homebrew-app" />
+          <img src={`${base}assets/img/homebrew-apps-1.jpg`} alt="homebrew-apps-1" />
+          <img src={`${base}assets/img/homebrew-apps-2.jpg`} alt="homebrew-apps-2" />
+          <img src={`${base}assets/img/homebrew-apps-3.jpg`} alt="homebrew-apps-3" />
+          <img src={`${base}assets/img/mario-kart-mod.jpg`} alt="mario-kart-mod" />
+          <img src={`${base}assets/img/gba-emulator-3.jpg`} alt="gba-emulator-3" />
+          <img src={`${base}assets/img/gba-emulator-2.jpg`} alt="gba-emulator-2" />
+          <img src={`${base}assets/img/gba-emulator-1.jpg`} alt="gba-emulator-1" />
+          <img src={`${base}assets/img/wii-apps.jpg`} alt="wii-apps" />
+          <img src={`${base}assets/img/wii-games.gif`} alt="wii-games" />
         </div>
       </section>
 
