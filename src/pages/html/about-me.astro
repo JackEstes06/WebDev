@@ -1,171 +1,92 @@
 ---
-// Tailwind is installed for future work, but not imported here so the original styling stays unchanged.
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<!--Jack Estes-->
-<!--IS201 Section 003-->
-<!--12/11/23-->
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>I'm weird..</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/styles.css" rel="stylesheet" />
-    <link href="../css/myStyles.css" rel="stylesheet" />
-</head>
-<body>
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="../index.html">Jack Estes</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="resume.html">Resume</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="side-projects.html">Side Projects</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">About Me</a></li>
-            </ul>
-        </div>
+
+<BaseLayout title="About Me">
+  <section class="page-hero about-hero">
+    <div class="hero-content">
+      <p class="eyebrow">About Me</p>
+      <h1>About Me</h1>
     </div>
-</nav>
-<!-- Page Header-->
-<header class="masthead" style="background-image: url('../assets/img/about-bg.jpg')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <br/><div class="site-heading adjusted-site-heading">
-                    <h1>About Me</h1>
-                </div>
-            </div>
+  </section>
+
+  <main class="about-page">
+    <aside class="about-sidebar card">
+      <p class="eyebrow">Quick Links</p>
+      <ol>
+        <li><a href="#gen-info">General</a></li>
+        <li><a href="#mar-info">Marriage</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#passions">Passions</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+      </ol>
+    </aside>
+
+    <section class="about-content">
+      <section class="about-section card" id="gen-info">
+        <h2>General Info</h2>
+        <p>
+          I am 23 years old, study Information Systems (at least that's the hope) at Brigham Young University. I love to play sports, play video games, read books, tinker w/ technology, workout, and work. I grew up in a small town (~10k people) in Waynesboro, PA. For the majority of you that don't know where this is, its about 15 minutes from Gettysburg, PA. I graduated in 2018, served a mission for the Church of Jesus Christ of Latter-day Saints in Bogotá, Colombia, and got married shortly after I returned.
+        </p>
+      </section>
+
+      <section class="about-section card" id="mar-info">
+        <h2>My Wife & Me</h2>
+        <p>
+          My wife & I met in October 2020. We went on out first date December 12, 2020. We were engaged by February ??, 2021 (I know I should know that, but the marriage date is more important to me ;)). We got married May 12, 2021. We've been happily married since then. My wife, Grace, is amazing. She loves to bake, read, watch shows, do paint by numbers, and go to fun events w/ me!
+        </p>
+      </section>
+
+      <section class="about-section card" id="photos">
+        <h2>Photos</h2>
+
+        <div class="photo-masonry">
+          <img src="/assets/img/j&g-basketball-1.png" title="j&g-basketball-1" alt="j&g-basketball-1" />
+          <img src="/assets/img/j&g-churros.png" title="j&g-churros" alt="j&g-churros" />
+          <img src="/assets/img/j-r6-meme.png" title="j-r6-meme" alt="j-r6-meme" />
+          <img src="/assets/img/j&g-golfers.png" title="j&g-golfers" alt="j&g-golfers" />
+          <img src="/assets/img/j&g-hike-summit.png" title="j&g-hike-summit" alt="j&g-hike-summit" />
+          <img src="/assets/img/j&g-imaginedragons-concert.png" title="j&g-imaginedragons-concert" alt="j&g-imaginedragons-concert" />
+          <img src="/assets/img/j&g-football-game.png" title="j&g-football-game" alt="j&g-football-game" />
+          <img src="/assets/img/j&g-picnic.png" title="j&g-picnic" alt="j&g-picnic" />
+          <img src="/assets/img/j-longboards.png" title="j-longboards" alt="j-longboards" />
+          <img src="/assets/img/j-waterfall.png" title="j-waterfall" alt="j-waterfall" />
+          <img src="/assets/img/j&g-basketball-3.png" title="j&g-basketball-3" alt="j&g-basketball-3" />
+          <img src="/assets/img/j&g-maroon5-concert.png" title="j&g-maroon5-concert" alt="j&g-maroon5-concert" />
+          <img src="/assets/img/j&g-basketball-2.png" title="j&g-basketball-2" alt="j&g-basketball-2" />
+          <img src="/assets/img/j-slumped.png" title="j-slumped" alt="j-slumped" />
+          <img src="/assets/img/j&g-jazz-game.png" title="j&g-jazz-game" alt="j&g-jazz-game" />
+          <img src="/assets/img/j&g-weirdos-at-sundance.png" title="j&g-weirdos-at-sundance" alt="j&g-weirdos-at-sundance" />
+          <img src="/assets/img/j-snowboarding.png" title="j-snowboarding" alt="j-snowboarding" />
         </div>
-    </div>
-</header>
-<!-- Main Content -->
-<main class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
-            <div class="quick-links-resume">
-                Quick Links:
-                <ol>
-                    <li><a href="#gen-info">General</a><br/></li>
-                    <li><a href="#mar-info">Marriage</a><br/></li>
-                    <li><a href="#photos">Photos</a><br/></li>
-                    <li><a href="#passions">Passions</a><br/></li>
-                    <li><a href="#hobbies">Hobbies</a></li>
-                </ol>
-            </div><br/>
-            <div class="general-info" id="gen-info">
-                <h1>General Info</h1>
-                <p>I am 23 years old, study Information Systems (at least that's the hope) at Brigham Young University. I love to play sports, play video games, read books, tinker w/ technology, workout, and work. I grew up in a small town (~10k people) in Waynesboro, PA. For the majority of you that don't know where this is, its about 15 minutes from Gettysburg, PA. I graduated in 2018, served a mission for the Church of Jesus Christ of Latter-day Saints in Bogotá, Colombia, and got married shortly after I returned.</p>
-            </div>
-            <div class="marriage-info" id="mar-info">
-                <h1>My Wife & Me</h1>
-                <p>My wife & I met in October 2020. We went on out first date December 12, 2020. We were engaged by February ??, 2021 (I know I should know that, but the marriage date is more important to me ;)). We got married May 12, 2021. We've been happily married since then. My wife, Grace, is amazing. She loves to bake, read, watch shows, do paint by numbers, and go to fun events w/ me!</p>
-            </div>
-            <div class="photo-grid" id="photos">
-                <h1>Photos</h1>
-                <div class="pics-row">
-                    <div class="pics-col">
-                        <img class="pics-1" src="../assets/img/j&g-basketball-1.png" title="j&g-basketball-1" alt="j&g-basketball-1">
-                        <img class="pics-1" src="../assets/img/j&g-churros.png" title="j&g-churros" alt="j&g-churros">
-                        <img class="pics-1" src="../assets/img/j-r6-meme.png" title="j-r6-meme" alt="j-r6-meme">
-                        <img class="pics-1" src="../assets/img/j&g-golfers.png" title="j&g-golfers" alt="j&g-golfers">
-                        <img class="pics-1" src="../assets/img/j&g-hike-summit.png" title="j&g-hike-summit" alt="j&g-hike-summit">
-                        <img class="pics-1" src="../assets/img/j&g-imaginedragons-concert.png" title="j&g-imaginedragons-concert" alt="j&g-imaginedragons-concert">
-                        <img class="pics-1" src="../assets/img/j&g-football-game.png" title="j&g-football-game" alt="j&g-football-game">
-                        <img class="pics-1" src="../assets/img/j&g-picnic.png" title="j&g-picnic" alt="j&g-picnic">
-                    </div>
-                    <div class="pics-col">
-                        <img class="pics-1" src="../assets/img/j-longboards.png" title="j-longboards" alt="j-longboards">
-                        <img class="pics-1" src="../assets/img/j-waterfall.png" title="j-waterfall" alt="j-waterfall">
-                        <img class="pics-1" src="../assets/img/j&g-basketball-3.png" title="j&g-basketball-3" alt="j&g-basketball-3">
-                        <img class="pics-1" src="../assets/img/j&g-maroon5-concert.png" title="j&g-maroon5-concert" alt="j&g-maroon5-concert">
-                        <img class="pics-1" src="../assets/img/j&g-basketball-2.png" title="j&g-basketball-2" alt="j&g-basketball-2">
-                        <img class="pics-1" src="../assets/img/j-slumped.png" title="j-slumped" alt="j-slumped">
-                        <img class="pics-1" src="../assets/img/j&g-jazz-game.png" title="j&g-jazz-game" alt="j&g-jazz-game">
-                        <img class="pics-1" src="../assets/img/j&g-weirdos-at-sundance.png" title="j&g-weirdos-at-sundance" alt="j&g-weirdos-at-sundance">
-                        <img class="pics-1" src="../assets/img/j-snowboarding.png" title="j-snowboarding" alt="j-snowboarding">
-                    </div>
-                </div><br/>
-            </div>
-            <div class="passions" id="passions">
-                <h1>My Passions</h1>
-                <p>I love to do almost any physical activity barring dance because I have 2 left feet (Don't say that everyone can dance, I've tried, I've failed. Even dancer friends can't teach me..). Of all the physical activities, I am passionate about soccer, basketball, snowboarding, longboarding, and whichever intramural team I end up playing for at BYU.</p>
-                <p>I am also passionate about piano music - playing it, writing it, & listening to it. I started playing piano when I was 7. In true form, I fought my mother on it constantly. I hated practicing, but I was good at it. Now I love it. It is a big stress reliever for me, and one of my preferred creative outlets. I have composed 8 or 9 songs, but I've not been good at actually writing them down. I have recordings that I'll come back to when I have more time. I have 1 or 2 written down, the software for it, and a full MIDI keyboard to do it.</p>
-                <!--TODO add video from YouTube of piano solo-->
-                <div class="youtube-embed">
-                    <iframe class="youtube-vid" src="https://www.youtube.com/embed/0f_MWJoT7fU"></iframe>
-                </div>
-                <p>Another one of my passions is video games. I love to play Rocket League, Destiny 2, Fortnite, Minecraft, R6 Siege, Halo, & CoD among others. I also am an avid board/card game player. My preference is to play games with lots of strategy and planning. The list of games I like playing goes on for days, but we'll leave it at my liking any games except Apples-to-Apples (Cards Against Humanity & other versions are fine) and Cover Your Assets.</p>
-            </div>
-            <div class="hobbies" id="hobbies">
-                <h1>My Hobbies</h1>
-                <p>I have ADHD and love to dabble in anything I find interesting. I love to tinker with technology - fixing computers, jailbreaking systems/consoles, improving my home setup via new systems like Pi-Hole & self-hosting, & hopefully soon to be added to the list, 3D printing. I like to read (and write) books. I like to take 7-minute power naps (I swear by them and they are the best thing ever). I like to drive and look at cool scenery. I like watching and keeping up with the NFL, NBA, & EPL (English Premier League). There isn't much that I don't like to do, but I do hate just sitting and doing nothing!</p>
-            </div><br/>
+      </section>
+
+      <section class="about-section card" id="passions">
+        <h2>My Passions</h2>
+
+        <p>
+          I love to do almost any physical activity barring dance because I have 2 left feet (Don't say that everyone can dance, I've tried, I've failed. Even dancer friends can't teach me..). Of all the physical activities, I am passionate about soccer, basketball, snowboarding, longboarding, and whichever intramural team I end up playing for at BYU.
+        </p>
+
+        <p>
+          I am also passionate about piano music - playing it, writing it, & listening to it. I started playing piano when I was 7. In true form, I fought my mother on it constantly. I hated practicing, but I was good at it. Now I love it. It is a big stress reliever for me, and one of my preferred creative outlets. I have composed 8 or 9 songs, but I've not been good at actually writing them down. I have recordings that I'll come back to when I have more time. I have 1 or 2 written down, the software for it, and a full MIDI keyboard to do it.
+        </p>
+
+        <div class="video-grid">
+          <iframe src="https://www.youtube.com/embed/0f_MWJoT7fU"></iframe>
         </div>
-    </div>
-</main>
-<!-- Footer-->
-<footer class="border-top">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <ul class="list-inline text-center">
-                    <li class="list-inline-item">
-                        <a href="https://www.instagram.com/jtestes10/" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://github.com/JackEstes06" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://www.linkedin.com/in/jack-estes-06" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="mailto:jackestes10@yahoo.com">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa-regular fa-envelope fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="small text-center text-muted fst-italic"><a href="#">Back To Top</a></div>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Jack Estes 2023</div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script is:inline src="/js/scripts.js"></script>
-</body>
-</html>
+
+        <p>
+          Another one of my passions is video games. I love to play Rocket League, Destiny 2, Fortnite, Minecraft, R6 Siege, Halo, & CoD among others. I also am an avid board/card game player. My preference is to play games with lots of strategy and planning. The list of games I like playing goes on for days, but we'll leave it at my liking any games except Apples-to-Apples (Cards Against Humanity & other versions are fine) and Cover Your Assets.
+        </p>
+      </section>
+
+      <section class="about-section card" id="hobbies">
+        <h2>My Hobbies</h2>
+        <p>
+          I have ADHD and love to dabble in anything I find interesting. I love to tinker with technology - fixing computers, jailbreaking systems/consoles, improving my home setup via new systems like Pi-Hole & self-hosting, & hopefully soon to be added to the list, 3D printing. I like to read (and write) books. I like to take 7-minute power naps (I swear by them and they are the best thing ever). I like to drive and look at cool scenery. I like watching and keeping up with the NFL, NBA, & EPL (English Premier League). There isn't much that I don't like to do, but I do hate just sitting and doing nothing!
+        </p>
+      </section>
+    </section>
+  </main>
+</BaseLayout>

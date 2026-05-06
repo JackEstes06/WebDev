@@ -1,284 +1,219 @@
 ---
-// Tailwind is installed for future work, but not imported here so the original styling stays unchanged.
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<!--Jack Estes-->
-<!--IS201 Section 003-->
-<!--12/12/23-->
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Weird Side Projects</title>
-    <link rel="stylesheet" href="../css/fromScratchStyles.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header-item-1"><a class="titleToHome" href="../index.html">Jack Estes</a></div>
-        <div class="header-item-2">
-            <button type="button" class="header-collapsible">
-                Menu
-                <img class="button-img" src="../assets/img/hamburger-icon.png" width="15px">
-            </button>
-            <div class="collapsible-content">
-                <a class="menu-item" href="../index.html">Home</a>
-                <a class="menu-item" href="resume.html">Resume</a>
-                <a class="menu-item" href="#">Side Projects</a>
-                <a class="menu-item" href="about-me.html">About Me</a>
-            </div>
-            <div class="menu-bar">
-                <a class="menu-item-lg" href="../index.html">Home</a>
-                <a class="menu-item-lg" href="resume.html">Resume</a>
-                <a class="menu-item-lg" href="#">Side Projects</a>
-                <a class="menu-item-lg" href="about-me.html">About Me</a>
-            </div>
-        </div>
-    </header>
 
-    <main>
-        <p>These side projects are for fun (mostly). This page is even a side project for my class project. I hope you enjoy and maybe even try some yourself!
-            <br/><b>NOTE:</b> This page uses css from scratch by me. There were no templates that it was formed from like the other pages. I have attempted to create something similar, but bootstrap will likely always do better than me!</p>
+<BaseLayout title="Side Projects">
+  <section class="page-hero projects-hero">
+    <div class="hero-content">
+      <p class="eyebrow">Side Projects</p>
+      <h1>My Weird Side Projects</h1>
+      <p class="hero-subtitle">
+        These side projects are for fun (mostly). This page is even a side project for my class project. I hope you enjoy and maybe even try some yourself!
+      </p>
+    </div>
+  </section>
 
-        <div class="quick-links">
-            Quick Links:
-            <ol>
-                <li><a href="#book">Book Writing</a><br/></li>
-                <li><a href="#pihole">Pi-Hole</a><br/></li>
-                <li><a href="#homeServer">Home Server</a><br/></li>
-                <li><a href="#wiiHomebrew">Wii/WiiU Homebrew</a><br/></li>
-                <li><a href="#tabl">Tableau Stuffs</a></li>
-            </ol>
-        </div><br/>
+  <main class="projects-page">
+    <aside class="projects-sidebar card">
+      <p class="eyebrow">Quick Links</p>
+      <ol>
+        <li><a href="#book">Book Writing</a></li>
+        <li><a href="#pihole">Pi-Hole</a></li>
+        <li><a href="#homeServer">Home Server</a></li>
+        <li><a href="#wiiHomebrew">Wii/WiiU Homebrew</a></li>
+        <li><a href="#tabl">Tableau Stuffs</a></li>
+      </ol>
+    </aside>
 
-        <div id="book">
-            <h1>The Forgotten Island</h1>
-            <h4>Synopsis?</h4>
-            <p>This is the tricky part... The original idea (had back in 2017 at my sister's wedding) was this: a family was caught and cast out of society into the Pariah Zone. Before the family was caught, the mother gave her son secretly to a friend to take care of and raise. Unbeknownst to him, the boy has unparalleled magical powers. Join him as he discovers his powers, his past, and the plot to overthrow an empire eons old.</p>
-            <p>I don't know if the book will follow that exact premise, but that's the gist. A corrupt government who creates outcast scapegoats will be overthrown by a seeming nobody with immense power & potential. Oh, did I mention the government ruler has this same power & potential and has been secretly committing genocide to prevent its widespread use that could threaten his throne?? Yeah, it's going to be wild.</p>
-            <h4>ETA?</h4>
-            <p>With school and work and family taking up a lot of my time, I don't know when I will actually get around to writing the book. The time I spend now consists of creating the world map, outlining the general plot, and creating characters (scripting them, naming them, visualizing them). I'm hoping to have a rough draft done by 2027, and this might end up as a 3-4 book series if I can have my way with it.</p>
-            <h4>What's been done so far?</h4>
-            <p>As I mentioned, not a lot of time is able to be devoted to one of my lifetime goals of writing a novel/series yet, so these are the minor things that have been completed so far.</p>
-            <ul>
-                <li>Map Creation - General lands & terrains</li>
-                <li>Outlining the Plot</li>
-                <li>Creating a world - outlining societal roles & functions, government structure, </li>
-                <li>Magic system(s) (there is likely going to be more than 1 at play) - functions, uses, and how to obtain & increase skills</li>
-            </ul>
-            <div class="pics-of-book">
-                <div class="row-of-pics-1">
-                    <div class="pics-1-content"><img width="100%" class="pics-1" src="../assets/img/characters.png" alt="book characters"></div>
-                    <div class="pics-2-content"><img width="100%" class="pics-2" src="../assets/img/map.png" alt="book map"></div>
-                </div>
-                <div class="row-of-pics-2">
-                    <div class="pics-3-content"><img width="100%" class="pics-3" src="../assets/img/outline.png" alt="book outline"></div>
-                    <div class="pics-4-content"><img width="100%" class="pics-4" src="../assets/img/powerProgression.png" alt="book power progression"></div>
-                </div>
-            </div>
-            <h4>Helpful Links for Writing Books</h4>
-            <ol>
-                <li><a title="NPCGenerator.com" href="https://www.npcgenerator.com/" target="_blank">Character Generator</a></li>
-                <li><a title="HeroForge.com" href="https://www.heroforge.com/" target="_blank">Character Builder</a></li>
-                <li><a title="Inkarnate.com" href="https://inkarnate.com/" target="_blank">Map Maker</a></li>
-                <li><a title="LucidChart" href="https://lucid.co/" target="_blank">Visual Charting - Free-ish</a></li>
-                <li><a title="Draw.io" href="https://app.diagrams.net/" target="_blank">Visual Charting - Free</a></li>
-            </ol>
-        </div><br/>
-        <div id="pihole">
-            <h1>Pi-Hole</h1>
-            <h4>What is Pi-Hole?</h4>
-            <p>This is too much for me to explain. Go to the <a title="Wikipedia page for PiHole" href="https://en.wikipedia.org/wiki/Pi-hole" target="_blank">Wiki page for PiHole</a> for more detailed info.</p>
-            <p>TLDR - PiHole is an ad-blocker and allows for superior control over internet traffic and use in the home. It is open sourced and cool if you can figure it out.</p>
-            <h4>How to do it?</h4>
-            <p>Here are some YouTube videos and links explaining how to do it! You need a raspberry or some other computer that runs Linux. This computer will be running constantly so choose something that uses minimal power (i.e. raspberry pi).</p>
-            <ul>
-                <li>Here is the <a href="https://pi-hole.net/" title="Pi-Hole.com" target="_blank">Pi-Hole Website</a>.</li>
-            </ul>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/roYduABVjo8"></iframe>
-            </div>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/xtMFcVx3cHU"></iframe>
-            </div>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/cE21YjuaB6o"></iframe>
-            </div>
-            <p>Once you've fully set up the raspberry pi, Wi-Fi configuration settings, and pi-hole, you can start blocking what you want! Here are some links to blacklists for what I block and why; the rest you can google around for! These aren't all navigable links, so I'll put the in as text, and you can either add them to your ad-list (of things to blacklist) or go to them by copying and pasting.</p>
-            <ul>
-                <li>General - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts</li>
-                <li>Tracking - https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt</li>
-                <li>Ads - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt</li>
-                <li>Adult Content - https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list</li>
-                <li>General - http://sysctl.org/cameleon/hosts</li>
-                <li>SmartTV - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt</li>
-                <li>LG Tracking - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/regex.list</li>
-                <li>Safe Adlist - https://dbl.oisd.nl/</li>
-                <li>Facebook - https://raw.githubusercontent.com/aronjanosch/pihole-facebook_oculus/main/pihole-facebook.txt</li>
-            </ul>
-            <h4>My Pi-Hole</h4>
-            <p>Here is what my pi-hole looks like. It requires that you have a raspberry pi or some computer that runs linux.</p>
-            <div class="pi-hole-imgs">
-                <div class="row-of-pics-1">
-                    <div class="pics-1-content"><img class="pics-1" src="../assets/img/my-pi-w-pihole-on-it.png" alt="my-pi-w-pihole-on-it" width="100%"></div>
-                    <div class="pics-2-content"><img class="pics-2" src="../assets/img/pihole-login.png" alt="pihole-login" width="100%"></div>
-                </div>
-                <div class="row-of-pics-2">
-                    <div><img class="pics-3" src="../assets/img/my-pihole.png" alt="my-pihole" width="100%"></div>
-                </div>
-            </div>
-        </div>
-        <div id="homeServer">
-            <h1>Home Server</h1>
-            <h4>What is Home Serving/Self Hosting?</h4>
-            <p>
-                The concept in which you host your own applications, data, and more. Taking away the "unknown" factor in how your data is managed and stored, this provides those with the willingness to learn and the mind to do so to take control of their data without losing the functionality of services they otherwise use frequently.
-                <br/><b>Some Examples:</b> For instance, if you use dropbox, but are not fond of having your most sensitive data stored in a data-storage container that you do not have direct control over, you may consider NextCloud. Or let's say you're used to hosting a blog out of a Blogger platform, but would rather have your own customization and flexibility of controlling your updates? Why not give WordPress a go. The possibilities are endless and it all starts here with a server.
-            </p>
-            <h4>How to do it?</h4>
-            <p>I'm not entirely sure on the whole process. The <a href="https://adrift.space/r-selfhosted/wiki/" target="_blank">Wiki Page</a> for self-hosting has good information. Also, the subreddits <a href="https://www.reddit.com/r/selfhosted/" target="_blank">r/selfhosted</a> and <a href="https://www.reddit.com/r/HomeServer/" target="_blank">r/HomeServer</a> have lots of information and places to interact w/ community members who've paved the way and done this before.</p>
-            <h4>My Server</h4>
-            <p>I don't have one yet. This is my next side project!</p>
-        </div>
-        <div id="wiiHomebrew">
-            <h1>Wii/WiiU Homebrew</h1>
-            <h4>What is homebrew?</h4>
-            <p>Homebrew refers to software not authorized by Nintendo. This can include games, utilities, emulators and much more! Running homebrew on your Nintendo Wii can be done for free by exploiting bugs in Wii’s software. The modifications installed by following this guide will give you easy and persistent access to Wii homebrew.</p>
-            <h4>How to do it?</h4>
-            <p>Go <a href="https://wii.guide/get-started" target="_blank">here</a> and follow the steps from the exploit of your choosing. There are many to choose from, but I used the str2hax method to install the Homebrew channel on my Nintendo Wii.</p>
-            <p>TLDR - You can modify your Wii to do cool things. Here's some videos to show why to do it followed by how.</p>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/AOUKrpe4Q-o"></iframe>
-            </div>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/x1njuiyPFxU"></iframe>
-            </div>
-            <div class="youtube-embed">
-                <iframe class="youtube-vid" src="https://www.youtube.com/embed/MvNag0B5jbk"></iframe>
-            </div>
-            <h4>My Homebrew</h4>
-            <p></p>
-            <div class="wii-imgs">
-                <div class="row-of-pics-1">
-                    <div class="pics-1-content"><img class="pics-1" src="../assets/img/homebrew-app.jpg" alt="homebrew-app" width="100%"></div>
-                    <div class="pics-2-content"><img class="pics-2" src="../assets/img/homebrew-apps-1.jpg" alt="homebrew-apps-1" width="100%"></div>
-                </div>
-                <div class="row-of-pics-2">
-                    <div class="pics-3-content"><img class="pics-3" src="../assets/img/homebrew-apps-2.jpg" alt="homebrew-apps-2" width="100%"></div>
-                    <div class="pics-4-content"><img class="pics-4" src="../assets/img/homebrew-apps-3.jpg" alt="homebrew-apps-3" width="100%"></div>
-                </div>
-            </div>
-            <div class="wii-imgs">
-                <div class="row-of-pics-1">
-                    <div class="pics-1-content"><img class="pics-1" src="../assets/img/mario-kart-mod.jpg" alt="mario-kart-mod" width="100%"></div>
-                    <div class="pics-2-content"><img class="pics-2" src="../assets/img/gba-emulator-3.jpg" alt="gba-emulator-3" width="100%"></div>
-                </div>
-                <div class="row-of-pics-2">
-                    <div class="pics-3-content"><img class="pics-3" src="../assets/img/gba-emulator-2.jpg" alt="gba-emulator-2" width="100%"></div>
-                    <div class="pics-4-content"><img class="pics-4" src="../assets/img/gba-emulator-1.jpg" alt="gba-emulator-1" width="100%"></div>
-                </div>
-            </div>
-            <div class="wii-imgs">
-                <div class="row-of-pics-1">
-                    <div class="pics-1-content"><img class="pics-1" src="../assets/img/wii-apps.jpg" alt="wii-apps" width="100%"></div>
-                </div>
-                <div class="row-of-pics-2">
-                    <div class="pics-2-content"><img class="pics-2" src="../assets/img/wii-games.gif" alt="wii-games" width="100%"></div>
-                </div>
-            </div>
-        </div>
-        <div id="tabl">
-            <h1>Tableau 2019-2020 Euro Soccer Info</h1>
-            <p class="tableau-insert">Here is a Tableau Project I made for fun. It is the culmination of the stats from the top European soccer leagues in the 2019-2020 seasons. The leagues are:</p>
-            <ul>
-                <li>Belgium - Jupiler League</li>
-                <li>England - Premier League</li>
-                <li>France - Le Championnat</li>
-                <li>Germany - Bundesliga</li>
-                <li>Italy - Serie A</li>
-                <li>Netherlands - Eredivisie</li>
-                <li>Portugal - Liga I</li>
-                <li>Spain - La Liga Primera Division</li>
-            </ul>
-            <div class='tableauPlaceholder' id='viz1702420136862' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;We&#47;WebProjectSoccerStatsEurope2019-2020JackEstes2023&#47;AwayGoalsScoredbyHomeStats&#47;1_rss.png' style='border: none' />
-                    </a>
-                </noscript>
-                <object class='tableauViz'  style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' />
-                    <param name='site_root' value='' />
-                    <param name='name' value='WebProjectSoccerStatsEurope2019-2020JackEstes2023&#47;AwayGoalsScoredbyHomeStats' />
-                    <param name='tabs' value='yes' />
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;We&#47;WebProjectSoccerStatsEurope2019-2020JackEstes2023&#47;AwayGoalsScoredbyHomeStats&#47;1.png' />
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='en-US' />
-                </object>
-            </div>
-            <p class="tableau-insert">Here is the <a class="tableau-excel-download" href="../assets/Top Europe Soccer League Statistics.xlsx" download>spreadsheet</a> of the data for the Tableau Project above!</p>
-        </div>
-    </main>
+    <section class="projects-content">
+      <section class="project-section card" id="book">
+        <h2>The Forgotten Island</h2>
 
-    <footer class="footer">
-        <hr/>
-        <div class="icons">
-            <div class="icons-item-1">
-                <a href="https://www.instagram.com/jtestes10/" target="_blank">
-                    <div class="img-container"><img class="icons-img" src="../assets/img/instagram-icon.png" width="30"></div>
-                </a>
-            </div>
-            <div class="icons-item-2">
-                <a href="https://github.com/JackEstes06" target="_blank">
-                    <div class="img-container"><img class="icons-img" src="../assets/img/github-icon.png" width="30"></div>
-                </a>
-            </div>
-            <div class="icons-item-3">
-                <a href="https://www.linkedin.com/in/jack-estes-06" target="_blank">
-                    <div class="img-container"><img class="icons-img" src="../assets/img/linkedin-icon.png" width="30"></div>
-                </a>
-            </div>
-            <div class="icons-item-4">
-                <a href="mailto:jackestes10@yahoo.com">
-                    <div class="img-container"><img class="icons-img" src="../assets/img/email-icon.png" width="30"></div>
-                </a>
-            </div>
-        </div>
-        <div><a class="to-top" href="#">Back To Top</a></div>
-        <div class="copyright-ish">Copyright &copy; Jack Estes 2023</div>
-    </footer>
-    <!--Script for content dropdown-->
-    <script>
-        var coll = document.getElementsByClassName("header-collapsible");
-        var i;
+        <h3>Synopsis?</h3>
+        <p>This is the tricky part... The original idea (had back in 2017 at my sister's wedding) was this: a family was caught and cast out of society into the Pariah Zone. Before the family was caught, the mother gave her son secretly to a friend to take care of and raise. Unbeknownst to him, the boy has unparalleled magical powers. Join him as he discovers his powers, his past, and the plot to overthrow an empire eons old.</p>
+        <p>I don't know if the book will follow that exact premise, but that's the gist. A corrupt government who creates outcast scapegoats will be overthrown by a seeming nobody with immense power & potential. Oh, did I mention the government ruler has this same power & potential and has been secretly committing genocide to prevent its widespread use that could threaten his throne?? Yeah, it's going to be wild.</p>
 
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "flex") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "flex";
-                }
-            });
-        }
-    </script>
-    <!--Script for tableau insert-->
-    <script type='text/javascript'>
-        var divElement = document.getElementById('viz1702420136862');
-        var vizElement = divElement.getElementsByTagName('object')[0];
-        vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
-</body>
-</html>
+        <h3>ETA?</h3>
+        <p>With school and work and family taking up a lot of my time, I don't know when I will actually get around to writing the book. The time I spend now consists of creating the world map, outlining the general plot, and creating characters (scripting them, naming them, visualizing them). I'm hoping to have a rough draft done by 2027, and this might end up as a 3-4 book series if I can have my way with it.</p>
+
+        <h3>What's been done so far?</h3>
+        <p>As I mentioned, not a lot of time is able to be devoted to one of my lifetime goals of writing a novel/series yet, so these are the minor things that have been completed so far.</p>
+
+        <ul>
+          <li>Map Creation - General lands & terrains</li>
+          <li>Outlining the Plot</li>
+          <li>Creating a world - outlining societal roles & functions, government structure, </li>
+          <li>Magic system(s) (there is likely going to be more than 1 at play) - functions, uses, and how to obtain & increase skills</li>
+        </ul>
+
+        <div class="media-grid">
+          <img src="/assets/img/characters.png" alt="book characters" />
+          <img src="/assets/img/map.png" alt="book map" />
+          <img src="/assets/img/outline.png" alt="book outline" />
+          <img src="/assets/img/powerProgression.png" alt="book power progression" />
+        </div>
+
+        <h3>Helpful Links for Writing Books</h3>
+        <ol>
+          <li><a href="https://www.npcgenerator.com/" target="_blank">Character Generator</a></li>
+          <li><a href="https://www.heroforge.com/" target="_blank">Character Builder</a></li>
+          <li><a href="https://inkarnate.com/" target="_blank">Map Maker</a></li>
+          <li><a href="https://lucid.co/" target="_blank">Visual Charting - Free-ish</a></li>
+          <li><a href="https://app.diagrams.net/" target="_blank">Visual Charting - Free</a></li>
+        </ol>
+      </section>
+
+      <section class="project-section card" id="pihole">
+        <h2>Pi-Hole</h2>
+
+        <h3>What is Pi-Hole?</h3>
+        <p>This is too much for me to explain. Go to the <a href="https://en.wikipedia.org/wiki/Pi-hole" target="_blank">Wiki page for PiHole</a> for more detailed info.</p>
+        <p>TLDR - PiHole is an ad-blocker and allows for superior control over internet traffic and use in the home. It is open sourced and cool if you can figure it out.</p>
+
+        <h3>How to do it?</h3>
+        <p>Here are some YouTube videos and links explaining how to do it! You need a raspberry or some other computer that runs Linux. This computer will be running constantly so choose something that uses minimal power (i.e. raspberry pi).</p>
+
+        <ul>
+          <li>Here is the <a href="https://pi-hole.net/" target="_blank">Pi-Hole Website</a>.</li>
+        </ul>
+
+        <div class="video-grid">
+          <iframe src="https://www.youtube.com/embed/roYduABVjo8"></iframe>
+          <iframe src="https://www.youtube.com/embed/xtMFcVx3cHU"></iframe>
+          <iframe src="https://www.youtube.com/embed/cE21YjuaB6o"></iframe>
+        </div>
+
+        <p>Once you've fully set up the raspberry pi, Wi-Fi configuration settings, and pi-hole, you can start blocking what you want! Here are some links to blacklists for what I block and why; the rest you can google around for! These aren't all navigable links, so I'll put the in as text, and you can either add them to your ad-list (of things to blacklist) or go to them by copying and pasting.</p>
+
+        <ul>
+          <li>General - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts</li>
+          <li>Tracking - https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt</li>
+          <li>Ads - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt</li>
+          <li>Adult Content - https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list</li>
+          <li>General - http://sysctl.org/cameleon/hosts</li>
+          <li>SmartTV - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt</li>
+          <li>LG Tracking - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/regex.list</li>
+          <li>Safe Adlist - https://dbl.oisd.nl/</li>
+          <li>Facebook - https://raw.githubusercontent.com/aronjanosch/pihole-facebook_oculus/main/pihole-facebook.txt</li>
+        </ul>
+
+        <h3>My Pi-Hole</h3>
+        <p>Here is what my pi-hole looks like. It requires that you have a raspberry pi or some computer that runs linux.</p>
+
+        <div class="media-grid">
+          <img src="/assets/img/my-pi-w-pihole-on-it.png" alt="my-pi-w-pihole-on-it" />
+          <img src="/assets/img/pihole-login.png" alt="pihole-login" />
+          <img src="/assets/img/my-pihole.png" alt="my-pihole" />
+        </div>
+      </section>
+
+      <section class="project-section card" id="homeServer">
+        <h2>Home Server</h2>
+
+        <h3>What is Home Serving/Self Hosting?</h3>
+        <p>
+          The concept in which you host your own applications, data, and more. Taking away the "unknown" factor in how your data is managed and stored, this provides those with the willingness to learn and the mind to do so to take control of their data without losing the functionality of services they otherwise use frequently.
+          <br /><strong>Some Examples:</strong> For instance, if you use dropbox, but are not fond of having your most sensitive data stored in a data-storage container that you do not have direct control over, you may consider NextCloud. Or let's say you're used to hosting a blog out of a Blogger platform, but would rather have your own customization and flexibility of controlling your updates? Why not give WordPress a go. The possibilities are endless and it all starts here with a server.
+        </p>
+
+        <h3>How to do it?</h3>
+        <p>I'm not entirely sure on the whole process. The <a href="https://adrift.space/r-selfhosted/wiki/" target="_blank">Wiki Page</a> for self-hosting has good information. Also, the subreddits <a href="https://www.reddit.com/r/selfhosted/" target="_blank">r/selfhosted</a> and <a href="https://www.reddit.com/r/HomeServer/" target="_blank">r/HomeServer</a> have lots of information and places to interact w/ community members who've paved the way and done this before.</p>
+
+        <h3>My Server</h3>
+        <p>I don't have one yet. This is my next side project!</p>
+      </section>
+
+      <section class="project-section card" id="wiiHomebrew">
+        <h2>Wii/WiiU Homebrew</h2>
+
+        <h3>What is homebrew?</h3>
+        <p>Homebrew refers to software not authorized by Nintendo. This can include games, utilities, emulators and much more! Running homebrew on your Nintendo Wii can be done for free by exploiting bugs in Wii’s software. The modifications installed by following this guide will give you easy and persistent access to Wii homebrew.</p>
+
+        <h3>How to do it?</h3>
+        <p>Go <a href="https://wii.guide/get-started" target="_blank">here</a> and follow the steps from the exploit of your choosing. There are many to choose from, but I used the str2hax method to install the Homebrew channel on my Nintendo Wii.</p>
+        <p>TLDR - You can modify your Wii to do cool things. Here's some videos to show why to do it followed by how.</p>
+
+        <div class="video-grid">
+          <iframe src="https://www.youtube.com/embed/AOUKrpe4Q-o"></iframe>
+          <iframe src="https://www.youtube.com/embed/x1njuiyPFxU"></iframe>
+          <iframe src="https://www.youtube.com/embed/MvNag0B5jbk"></iframe>
+        </div>
+
+        <h3>My Homebrew</h3>
+
+        <div class="media-grid">
+          <img src="/assets/img/homebrew-app.jpg" alt="homebrew-app" />
+          <img src="/assets/img/homebrew-apps-1.jpg" alt="homebrew-apps-1" />
+          <img src="/assets/img/homebrew-apps-2.jpg" alt="homebrew-apps-2" />
+          <img src="/assets/img/homebrew-apps-3.jpg" alt="homebrew-apps-3" />
+          <img src="/assets/img/mario-kart-mod.jpg" alt="mario-kart-mod" />
+          <img src="/assets/img/gba-emulator-3.jpg" alt="gba-emulator-3" />
+          <img src="/assets/img/gba-emulator-2.jpg" alt="gba-emulator-2" />
+          <img src="/assets/img/gba-emulator-1.jpg" alt="gba-emulator-1" />
+          <img src="/assets/img/wii-apps.jpg" alt="wii-apps" />
+          <img src="/assets/img/wii-games.gif" alt="wii-games" />
+        </div>
+      </section>
+
+      <section class="project-section card" id="tabl">
+        <h2>Tableau 2019-2020 Euro Soccer Info</h2>
+
+        <p>Here is a Tableau Project I made for fun. It is the culmination of the stats from the top European soccer leagues in the 2019-2020 seasons. The leagues are:</p>
+
+        <ul>
+          <li>Belgium - Jupiler League</li>
+          <li>England - Premier League</li>
+          <li>France - Le Championnat</li>
+          <li>Germany - Bundesliga</li>
+          <li>Italy - Serie A</li>
+          <li>Netherlands - Eredivisie</li>
+          <li>Portugal - Liga I</li>
+          <li>Spain - La Liga Primera Division</li>
+        </ul>
+
+        <div class="tableau-card">
+          <div class="tableauPlaceholder" id="viz1702420136862">
+            <noscript>
+              <a href="#">
+                <img alt=" " src="https://public.tableau.com/static/images/We/WebProjectSoccerStatsEurope2019-2020JackEstes2023/AwayGoalsScoredbyHomeStats/1_rss.png" />
+              </a>
+            </noscript>
+            <object class="tableauViz" style="display:none;">
+              <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+              <param name="embed_code_version" value="3" />
+              <param name="site_root" value="" />
+              <param name="name" value="WebProjectSoccerStatsEurope2019-2020JackEstes2023/AwayGoalsScoredbyHomeStats" />
+              <param name="tabs" value="yes" />
+              <param name="toolbar" value="yes" />
+              <param name="static_image" value="https://public.tableau.com/static/images/We/WebProjectSoccerStatsEurope2019-2020JackEstes2023/AwayGoalsScoredbyHomeStats/1.png" />
+              <param name="animate_transition" value="yes" />
+              <param name="display_static_image" value="yes" />
+              <param name="display_spinner" value="yes" />
+              <param name="display_overlay" value="yes" />
+              <param name="display_count" value="yes" />
+              <param name="language" value="en-US" />
+            </object>
+          </div>
+        </div>
+
+        <p>Here is the <a class="accent-link" href="/assets/Top Europe Soccer League Statistics.xlsx" download>spreadsheet</a> of the data for the Tableau Project above!</p>
+      </section>
+    </section>
+  </main>
+
+  <script is:inline>
+    const divElement = document.getElementById("viz1702420136862");
+
+    if (divElement) {
+      const vizElement = divElement.getElementsByTagName("object")[0];
+
+      vizElement.style.width = "100%";
+      vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+
+      const scriptElement = document.createElement("script");
+      scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    }
+  </script>
+</BaseLayout>

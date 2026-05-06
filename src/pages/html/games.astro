@@ -1,16 +1,31 @@
 ---
-// Tailwind is installed for future work, but not imported here so the original styling stays unchanged.
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Games Help/Scoring</title>
-</head>
-<body>
-    <p>WIP: updated and finished sometime soon</p>
-</body>
-</html>
+
+<BaseLayout title="Games">
+  <section class="page-hero games-hero">
+    <div class="hero-content">
+      <p class="eyebrow">Games</p>
+      <h1>Games</h1>
+      <p class="hero-subtitle">
+        A collection of games, experiments, and interactive projects.
+      </p>
+    </div>
+  </section>
+
+  <main class="simple-page">
+    <section class="card work-in-progress-card">
+      <p class="eyebrow">Work In Progress</p>
+
+      <h2>This page is currently under construction.</h2>
+
+      <p>
+        I plan to eventually add something here to make games I play with family members a better experience.
+      </p>
+
+      <p>
+        For now, this page is still being designed and built out.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

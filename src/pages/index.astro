@@ -1,141 +1,50 @@
 ---
-// Tailwind is installed for future work, but not imported here so the original styling stays unchanged.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<!--Jack Estes-->
-<!--IS201 Section 003-->
-<!--12/11/23-->
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My WebDev Project</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-</head>
-<body>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html">Jack Estes</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="html/resume.html">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="html/side-projects.html">Side Projects</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="html/about-me.html">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="html/games.html">Games</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="html/cafe.html">Estes Cafe</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Page Header-->
-    <!--TODO change photo-->
-    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>Jack Estes</h1>
-                        <span class="subheading">Tech Enthusiast, Sports Fanatic</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Main Content -->
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="html/resume.html">
-                        <h2 class="post-title">Resume</h2>
-                        <h3 class="post-subtitle">BSIS, CS Minor, Software Dev, & More</h3>
-                    </a>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="html/side-projects.html">
-                        <h2 class="post-title">Side Projects</h2>
-                        <h3 class="post-subtitle">Tech Side Projects & Links - Jailbreaking, Home Serving, Custom Blocking, & Others</h3>
-                    </a>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="html/about-me.html">
-                        <h2 class="post-title">About Me</h2>
-                        <h3 class="post-subtitle">My Life, My Hobbies, My Skills, & More!</h3>
-                    </a>
-                </div>
-            </div>
-        </div><br/>
+
+<BaseLayout title="Home">
+  <!-- Page Header -->
+  <section class="page-hero home-hero">
+    <div class="hero-content">
+      <p class="eyebrow">Tech Enthusiast, Sports Fanatic</p>
+      <h1>Jack Estes</h1>
+      <p class="hero-subtitle">
+        BSIS, CS Minor, Software Dev, & More
+      </p>
     </div>
-    <!-- Footer-->
-    <footer class="border-top">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <ul class="list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com/jtestes10/" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://github.com/JackEstes06" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.linkedin.com/in/jack-estes-06" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="mailto:jackestes10@yahoo.com">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fa-regular fa-envelope fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="small text-center text-muted fst-italic"><a href="#">Back To Top</a></div>
-                    <div class="small text-center text-muted fst-italic">Copyright &copy; Jack Estes 2023</div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script is:inline src="/js/scripts.js"></script>
-</body>
-</html>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <div class="card-grid home-card-grid">
+      <article class="card link-card">
+        <a href="/html/resume.html">
+          <p class="eyebrow">Resume</p>
+          <h2>Resume</h2>
+          <p>BSIS, CS Minor, Software Dev, & More</p>
+          <span class="accent-link">View Resume →</span>
+        </a>
+      </article>
+
+      <article class="card link-card">
+        <a href="/html/side-projects.html">
+          <p class="eyebrow">Projects</p>
+          <h2>Side Projects</h2>
+          <p>
+            Tech Side Projects & Links - Jailbreaking, Home Serving, Custom Blocking, & Others
+          </p>
+          <span class="accent-link">View Side Projects →</span>
+        </a>
+      </article>
+
+      <article class="card link-card">
+        <a href="/html/about-me.html">
+          <p class="eyebrow">About</p>
+          <h2>About Me</h2>
+          <p>My Life, My Hobbies, My Skills, & More!</p>
+          <span class="accent-link">Learn More →</span>
+        </a>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

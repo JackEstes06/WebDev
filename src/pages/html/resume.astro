@@ -1,204 +1,160 @@
 ---
-// Tailwind is installed for future work, but not imported here so the original styling stays unchanged.
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<!--Jack Estes-->
-<!--IS201 Section 003-->
-<!--12/11/23-->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Absolutely Stacked Resume</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
-  <!-- Font Awesome icons (free version)-->
-  <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js" crossorigin="anonymous"></script>
-  <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="../css/styles.css" rel="stylesheet" />
-  <link href="../css/myStyles.css" rel="stylesheet" />
-</head>
-<body>
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-    <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="../index.html">Jack Estes</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto py-4 py-lg-0">
-          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">Resume</a></li>
-          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="side-projects.html">Side Projects</a></li>
-          <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about-me.html">About Me</a></li>
-        </ul>
-      </div>
+
+<BaseLayout title="Resume">
+  <section class="page-hero resume-hero">
+    <div class="hero-content">
+      <p class="eyebrow">Resume</p>
+      <h1>Jack Estes</h1>
+      <p class="hero-subtitle">
+        (717)-377-9272 · jackestes3210@gmail.com
+      </p>
     </div>
-  </nav>
-  <!-- Page Header-->
-  <header class="masthead" style="background-image: url('../assets/img/desk.png')">
-    <div class="container position-relative px-4 px-lg-5">
-      <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
-          <div class="site-heading">
-            <h1>Jack Estes</h1>
-            <span class="subheading">(717)-377-9272</span>
-            <span class="subheading">jackestes3210@gmail.com</span>
+  </section>
+
+  <main class="resume-page">
+    <aside class="resume-sidebar card">
+      <p class="eyebrow">Quick Links</p>
+      <ol>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#exp-ista">Experience - IS Teaching Assistant</a></li>
+        <li><a href="#exp-dev">Experience - Software Dev</a></li>
+        <li><a href="#exp-itspec">Experience - IT Specialist</a></li>
+        <li><a href="#exp-other">Experience - Other</a></li>
+        <li><a href="#personal">Personal</a></li>
+      </ol>
+    </aside>
+
+    <section class="resume-content">
+      <section class="resume-section card" id="education">
+        <h2>Education</h2>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <h3>Brigham Young University, BYU Marriott School of Business</h3>
+              <p>Bachelor of Science, Pre-Business, Minor in Computer Science</p>
+            </div>
+            <span>Expected Graduation: April 2025</span>
           </div>
+
+          <ul>
+            <li><strong>Programming Languages Learned:</strong> C, C++, Java, HTML5, CSS, JavaScript, Python, & SQL</li>
+            <li><strong>Courses Taken:</strong> Basic Programming Principles, Simple and Complex Data Structures, Discrete Structure and Mathematics, Web Design, Information Systems, Linear Algebra, and Single Variable Calculus.</li>
+            <li><strong>Future Courses:</strong> Software Design and Engineering, Statistical Analyses, Artificial Intelligence, Machine Learning.</li>
+            <li><strong>Very Interested in Artificial Intelligence & Machine Learning</strong> - how it functions and what can be done to drive its evolution. Planning on taking all available courses in this area.</li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- Main Content -->
-  <main class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="resume">
-          <div class="quick-links-resume">
-            Quick Links:
-              <ol>
-                <li><a href="#education">Education</a><br/></li>
-                <li><a href="#exp-ista">Experience - IS Teaching Assistant</a><br/></li>
-                <li><a href="#exp-dev">Experience - Software Dev</a><br/></li>
-                <li><a href="#exp-itspec">Experience - IT Specialist</a><br/></li>
-                <li><a href="#exp-other">Experience - Other</a><br/></li>
-                <li><a href="#personal">Personal</a></li>
-              </ol>
-          </div><br/>
+      </section>
 
-          <h1 id="education">Education</h1>
-          <!-- Divider-->
-          <hr class="hr-resume" />
-          <!--Education content-->
-          <h4 class="h4-resume">Brigham Young University, BYU Marriott School of Business</h4>
-          <h5 class="h5-resume">Bachelor of Science, Pre-Business, Minor in Computer Science</h5>
-          <h5 class="h5-resume">Expected Graduation: April 2025</h5>
-          <ul>
-            <li class="li-resume"><span class="li-resume-main-idea">Programming Languages Learned:</span> C, C++, Java, HTML5, CSS, JavaScript, Python, & SQL</li>
-            <li class="li-resume"><span class="li-resume-main-idea">Courses Taken:</span> Basic Programming Principles, Simple and Complex Data Structures, Discrete Structure and Mathematics, Web Design, Information Systems, Linear Algebra, and Single Variable Calculus.</li>
-            <li class="li-resume"><span class="li-resume-main-idea">Future Courses:</span> Software Design and Engineering, Statistical Analyses, Artificial Intelligence, Machine Learning.</li>
-            <li class="li-resume"><span class="li-resume-main-idea">Very Interested in Artificial Intelligence & Machine Learning</span> - how it functions and what can be done to drive its evolution. Planning on taking all available courses in this area.</li>
-          </ul>
-          <br/>
+      <section class="resume-section card" id="exp-ista">
+        <h2>Experience</h2>
 
-          <h1 id="exp-ista">Experience</h1>
-          <!-- Divider-->
-          <hr class="hr-resume" />
-          <!--Experience content-->
-          <h4 class="h4-resume">Brigham Young University</h4>
-          <h4 class="h4-resume">January 2024 - Present</h4>
-          <h5 class="h5-resume">Teaching Assistant - Information Systems</h5>
-          <ul>
-            <li class="li-resume">Provide support to the lead teacher in implementing educational plans. Conduct 1-on-1 and group review sessions to reinforce lessons and support student learning during office hours.</li>
-            <li class="li-resume">Assist in grading assignments, providing constructive feedback to students, and tracking student progress. Foster collaborative relationships with fellow teaching assistants to share best practices, address challenges, and enhance overall teaching effectiveness.</li>
-          </ul>
-          <h4 class="h4-resume" id="exp-dev">The Good & the Beautiful</h4>
-          <h4 class="h4-resume">June 2022 - October 2023</h4>
-          <h5 class="h5-resume">Software Developer</h5>
-          <ul>
-            <li class="li-resume">Program apps that work in tandem with homeschool curriculum without detracting from the learning experience. Program mini games that help teach kids reading/writing skills. Pair/team program when necessary.</li>
-            <li class="li-resume">Help with locating and correcting bugs in programs with efficiency. Writing custom tests to accelerate and automate testing processes.</li>
-            <li class="li-resume">Submit code regularly and participate in weekly code reviews. Research and report on new packages, updates, and programming practices to keep code efficient, concurrent, and simple.</li>
-          </ul>
-          <h4 class="h4-resume" id="exp-itspec">The Good & the Beautiful</h4>
-          <h4 class="h4-resume">May 2021 - June 2022</h4>
-          <h5 class="h5-resume">Assistant Warehouse Manager & IT Specialist</h5>
-          <ul>
-            <li class="li-resume">Oversaw logistics and the reception of shipments.</li>
-            <li class="li-resume">Managed warehouse operations for 2 locations and supervised and lead a team of inventory specialists.</li>
-            <li class="li-resume">Innovated via excel spreadsheets and macros to track inventory more efficiently and reduce complexity of other’s workloads.</li>
-            <li class="li-resume">IT and Tech Specialist. Created auditing system to track errors in warehouse operations. Created systems to estimate space of purchases to avoid over purchasing. Audited company processes to find areas of improvement. Pioneered new company processes bases on audit of company processes.</li>
-            <li class="li-resume">Updated and maintained company owned technology. Troubleshot technical issues with company owned technology, third party logistics services, and shipping companies.</li>
-          </ul>
-          <h4 class="h4-resume" id="exp-other">The Good & the Beautiful</h4>
-          <h4 class="h4-resume">July 2020 - May 2021</h4>
-          <h5 class="h5-resume">Inventory Specialist</h5>
-          <ul>
-            <li class="li-resume">Responsible for reception of shipments of inventory and organizing inventory between 2 warehouses.</li>
-            <li class="li-resume">Utilization of excel spreadsheets to track inventory.</li>
-          </ul>
-          <h4 class="h4-resume">Vivint SmartHome</h4>
-          <h4 class="h4-resume">July 2018 - July 2019</h4>
-          <h5 class="h5-resume">Advanced Troubleshooting Specialist</h5>
-          <ul>
-            <li class="li-resume">Supported customers’ needs to troubleshoot their home security and smart home devices in a timely and uplifting manner.</li>
-            <li class="li-resume">Accountable for de-escalation of customers and fixed account errors.</li>
-          </ul>
-          <h4 class="h4-resume">Church of Jesus Christ of Latter-day Saints</h4>
-          <h4 class="h4-resume">August 2019 - March 2020</h4>
-          <h5 class="h5-resume">Voluntary Representative</h5>
-          <ul>
-            <li class="li-resume">Responsible for safety, well-being, and training of groups of 4-8 missionaries.</li>
-            <li class="li-resume">Proselyted to people for 12-18 hours each day. Engaged in different methods of teaching and communicating.</li>
-          </ul>
-          <br/>
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <h3>Brigham Young University</h3>
+              <p>Teaching Assistant - Information Systems</p>
+            </div>
+            <span>January 2024 - Present</span>
+          </div>
 
-          <h1 id="personal">Personal</h1>
-          <!-- Divider-->
-          <hr class="hr-resume" />
-          <!--Personal content-->
-          <p class="skills-p-resume"><span class="li-resume-main-idea">Skills:</span> C, C++, Python, Java, SQL, HTML5, CSS, JavaScript, Excel, Leadership, Teamwork, Highly Adaptable, Efficient Problem Solver, Detail Oriented, and Fluent in Spanish.</p>
-          <p class="skills-p-resume"><span class="li-resume-main-idea">Interests:</span> Reading and Writing Books, Performing and Composing Piano Solos, Spikeball, Pickleball, Hiking, and Intramural Sports.</p>
-          <p><a href="about-me.html">More About Me</a></p>
-          <br/>
+          <ul>
+            <li>Provide support to the lead teacher in implementing educational plans. Conduct 1-on-1 and group review sessions to reinforce lessons and support student learning during office hours.</li>
+            <li>Assist in grading assignments, providing constructive feedback to students, and tracking student progress. Foster collaborative relationships with fellow teaching assistants to share best practices, address challenges, and enhance overall teaching effectiveness.</li>
+          </ul>
         </div>
-      </div>
-    </div>
+
+        <div class="resume-entry" id="exp-dev">
+          <div class="resume-entry-header">
+            <div>
+              <h3>The Good & the Beautiful</h3>
+              <p>Software Developer</p>
+            </div>
+            <span>June 2022 - October 2023</span>
+          </div>
+
+          <ul>
+            <li>Program apps that work in tandem with homeschool curriculum without detracting from the learning experience. Program mini games that help teach kids reading/writing skills. Pair/team program when necessary.</li>
+            <li>Help with locating and correcting bugs in programs with efficiency. Writing custom tests to accelerate and automate testing processes.</li>
+            <li>Submit code regularly and participate in weekly code reviews. Research and report on new packages, updates, and programming practices to keep code efficient, concurrent, and simple.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry" id="exp-itspec">
+          <div class="resume-entry-header">
+            <div>
+              <h3>The Good & the Beautiful</h3>
+              <p>Assistant Warehouse Manager & IT Specialist</p>
+            </div>
+            <span>May 2021 - June 2022</span>
+          </div>
+
+          <ul>
+            <li>Oversaw logistics and the reception of shipments.</li>
+            <li>Managed warehouse operations for 2 locations and supervised and lead a team of inventory specialists.</li>
+            <li>Innovated via excel spreadsheets and macros to track inventory more efficiently and reduce complexity of other’s workloads.</li>
+            <li>IT and Tech Specialist. Created auditing system to track errors in warehouse operations. Created systems to estimate space of purchases to avoid over purchasing. Audited company processes to find areas of improvement. Pioneered new company processes bases on audit of company processes.</li>
+            <li>Updated and maintained company owned technology. Troubleshot technical issues with company owned technology, third party logistics services, and shipping companies.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry" id="exp-other">
+          <div class="resume-entry-header">
+            <div>
+              <h3>The Good & the Beautiful</h3>
+              <p>Inventory Specialist</p>
+            </div>
+            <span>July 2020 - May 2021</span>
+          </div>
+
+          <ul>
+            <li>Responsible for reception of shipments of inventory and organizing inventory between 2 warehouses.</li>
+            <li>Utilization of excel spreadsheets to track inventory.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <h3>Vivint SmartHome</h3>
+              <p>Advanced Troubleshooting Specialist</p>
+            </div>
+            <span>July 2018 - July 2019</span>
+          </div>
+
+          <ul>
+            <li>Supported customers’ needs to troubleshoot their home security and smart home devices in a timely and uplifting manner.</li>
+            <li>Accountable for de-escalation of customers and fixed account errors.</li>
+          </ul>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <h3>Church of Jesus Christ of Latter-day Saints</h3>
+              <p>Voluntary Representative</p>
+            </div>
+            <span>August 2019 - March 2020</span>
+          </div>
+
+          <ul>
+            <li>Responsible for safety, well-being, and training of groups of 4-8 missionaries.</li>
+            <li>Proselyted to people for 12-18 hours each day. Engaged in different methods of teaching and communicating.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="resume-section card" id="personal">
+        <h2>Personal</h2>
+
+        <p><strong>Skills:</strong> C, C++, Python, Java, SQL, HTML5, CSS, JavaScript, Excel, Leadership, Teamwork, Highly Adaptable, Efficient Problem Solver, Detail Oriented, and Fluent in Spanish.</p>
+
+        <p><strong>Interests:</strong> Reading and Writing Books, Performing and Composing Piano Solos, Spikeball, Pickleball, Hiking, and Intramural Sports.</p>
+
+        <a class="accent-link" href="/html/about-me.html">More About Me →</a>
+      </section>
+    </section>
   </main>
-  <!-- Footer-->
-  <footer class="border-top">
-    <div class="container px-4 px-lg-5">
-      <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="https://www.instagram.com/jtestes10/" target="_blank">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/JackEstes06" target="_blank">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/jack-estes-06" target="_blank">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-linkedin-in fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="mailto:jackestes10@yahoo.com">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fa-regular fa-envelope fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
-          <div class="small text-center text-muted fst-italic"><a href="#">Back To Top</a></div>
-          <div class="small text-center text-muted fst-italic">Copyright &copy; Jack Estes 2023</div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Core theme JS-->
-  <script is:inline src="/js/scripts.js"></script>
-</body>
-</html>
+</BaseLayout>

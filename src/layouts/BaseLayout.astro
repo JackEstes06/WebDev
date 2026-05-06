@@ -1,0 +1,85 @@
+---
+import "../css/global.css";
+import "../css/styles.css";
+const { title = "Jack Estes" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} | Jack Estes</title>
+  </head>
+
+  <body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="/" class="logo">JE</a>
+
+            <nav class="site-nav">
+            <a href="/">Home</a>
+            <a href="/html/resume.html">Resume</a>
+            <a href="/html/side-projects.html">Side Projects</a>
+            <a href="/html/about-me.html">About Me</a>
+            <a href="/html/games.html">Games</a>
+            <a href="/html/cafe.html">Estes Cafe</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-socials">
+                <a
+                    href="https://www.instagram.com/jtestes10/"
+                    target="_blank"
+                    aria-label="Instagram"
+                >
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a
+                    href="https://github.com/JackEstes06"
+                    target="_blank"
+                    aria-label="GitHub"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/jack-estes-06"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a
+                    href="mailto:jackestes3210@gmail.com"
+                    aria-label="Email"
+                >
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="footer-meta">
+                <a href="#">Back To Top</a>
+            </div>
+
+            <div class="footer-meta">
+                <p>Copyright © Jack Estes 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script is:inline src="/js/scripts.js"></script>
+    <script
+      src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
