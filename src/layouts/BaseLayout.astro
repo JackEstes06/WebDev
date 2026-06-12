@@ -17,13 +17,19 @@ const base = import.meta.env.BASE_URL;
         <div class="site-header-inner">
             <a href={base} class="logo">JE</a>
 
+            <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+
             <nav class="site-nav">
-                <a href={base}>Home</a>
-                <a href={`${base}html/resume.html`}>Resume</a>
-                <a href={`${base}html/side-projects.html`}>Side Projects</a>
-                <a href={`${base}html/about-me.html`}>About Me</a>
-                <a href={`${base}html/games.html`}>Games</a>
-                <a href={`${base}html/cafe.html`}>Estes Cafe</a>
+            <a href={base}>Home</a>
+            <a href={`${base}html/resume.html`}>Resume</a>
+            <a href={`${base}html/side-projects.html`}>Side Projects</a>
+            <a href={`${base}html/about-me.html`}>About Me</a>
+            <a href={`${base}html/games.html`}>Games</a>
+            <a href={`${base}html/cafe.html`}>Estes Cafe</a>
             </nav>
         </div>
     </header>
@@ -77,7 +83,7 @@ const base = import.meta.env.BASE_URL;
         </div>
     </footer>
 
-    <script is:inline src="/js/scripts.js"></script>
+    <script is:inline src={`${base}js/scripts.js`}></script>
     <script
       src="https://use.fontawesome.com/releases/v6.5.1/js/all.js"
       crossorigin="anonymous"

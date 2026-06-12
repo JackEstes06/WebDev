@@ -1,48 +1,81 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL;
+
+const heroTopImages = [
+  { src: `${base}assets/img/hero/top/top-1.png`, ratio: "portrait" },
+  { src: `${base}assets/img/hero/top/top-2.png`, ratio: "portrait" },
+  { src: `${base}assets/img/hero/top/top-3.png`, ratio: "landscape" },
+  { src: `${base}assets/img/hero/top/top-4.png`, ratio: "landscape" },
+  { src: `${base}assets/img/hero/top/top-5.png`, ratio: "portrait" },
+  { src: `${base}assets/img/hero/top/top-6.png`, ratio: "portrait" },
+];
+
+const heroBottomImages = [
+  `${base}assets/img/hero/bottom/bottom-1.png`,
+  `${base}assets/img/hero/bottom/bottom-2.png`,
+  `${base}assets/img/hero/bottom/bottom-3.png`,
+  `${base}assets/img/hero/bottom/bottom-4.png`,
+  `${base}assets/img/hero/bottom/bottom-5.png`,
+  `${base}assets/img/hero/bottom/bottom-6.png`,
+];
+
+const heroMobileImages = [
+  ...heroTopImages.map((img) => img.src),
+  ...heroBottomImages,
+];
 ---
 
 <BaseLayout title="Home">
-  <!-- Page Header -->
-  <section class="page-hero home-hero">
+  <section class="page-hero home-hero split-carousel-hero">
     <div class="hero-content">
-      <p class="eyebrow">Tech Enthusiast, Sports Fanatic</p>
+      <p class="eyebrow">Father, Tech Enthusiast, Sports Fanatic</p>
       <h1>Jack Estes</h1>
       <p class="hero-subtitle">
-        BSIS, CS Minor, Software Dev, & More
+        MISM, Software Dev, & More
       </p>
+    </div>
+
+    <div class="hero-carousel hero-carousel-mobile">
+      {[...heroMobileImages, ...heroMobileImages].map((src) => (
+        <img src={src} alt="" />
+      ))}
     </div>
   </section>
 
-  <!-- Main Content -->
   <section class="content-section">
     <div class="card-grid home-card-grid">
       <article class="card link-card">
-        <a href="/html/resume.html">
-          <p class="eyebrow">Resume</p>
-          <h2>Resume</h2>
-          <p>BSIS, CS Minor, Software Dev, & More</p>
+        <a href={`${base}html/resume.html`}>
+          <div>
+            <p class="eyebrow">Resume</p>
+            <h2>Resume</h2>
+            <p>MISM, Software Dev, Database Enthusiast, & More</p>
+          </div>
           <span class="accent-link">View Resume →</span>
         </a>
       </article>
 
       <article class="card link-card">
-        <a href="/html/side-projects.html">
-          <p class="eyebrow">Projects</p>
-          <h2>Side Projects</h2>
-          <p>
-            Tech Side Projects & Links - Jailbreaking, Home Serving, Custom Blocking, & Others
-          </p>
+        <a href={`${base}html/side-projects.html`}>
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2>Side Projects</h2>
+            <p>
+              Tech Side Projects & Links: Jailbreaking, Home Serving, Custom Blocking, & Others
+            </p>
+          </div>
           <span class="accent-link">View Side Projects →</span>
         </a>
       </article>
 
       <article class="card link-card">
-        <a href="/html/about-me.html">
-          <p class="eyebrow">About</p>
-          <h2>About Me</h2>
-          <p>My Life, My Hobbies, My Skills, & More!</p>
+        <a href={`${base}html/about-me.html`}>
+          <div>
+            <p class="eyebrow">About</p>
+            <h2>About Me</h2>
+            <p>My Life, My Hobbies, My Skills, & More!</p>
+          </div>
           <span class="accent-link">Learn More →</span>
         </a>
       </article>
