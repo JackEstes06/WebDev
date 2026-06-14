@@ -2,7 +2,20 @@
   "name": "jack-estes-personal-site-astro",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {"dev":"astro dev","start":"astro dev","build":"astro build","preview":"astro preview"},
-  "dependencies": {"@astrojs/tailwind":"latest","astro":"latest","tailwindcss":"latest"},
-  "devDependencies": {}
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.1",
+    "astro": "^6.4.6",
+    "firebase": "^12.14.0",
+    "tailwindcss": "^4.3.1"
+  },
+  "overrides": {
+    "vite": "^7",
+    "esbuild": "0.28.1"
+  }
 }

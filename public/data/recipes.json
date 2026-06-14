@@ -1,0 +1,142 @@
+[
+  {
+    "id": "easy-family-tacos",
+    "title": "Easy Family Tacos",
+    "category": "Dinner",
+    "servings": 4,
+    "prepTime": 10,
+    "cookTime": 15,
+    "totalTime": 25,
+    "source": "",
+    "ingredients": [
+      { "qty": 1, "unit": "lb", "item": "ground beef" },
+      { "qty": 1, "unit": "packet", "item": "taco seasoning" },
+      { "qty": 0.5, "unit": "cup", "item": "water" },
+      { "qty": 8, "unit": "", "item": "tortillas" },
+      { "qty": 1, "unit": "cup", "item": "shredded cheese" },
+      { "qty": 1, "unit": "cup", "item": "shredded lettuce" },
+      { "qty": 0.5, "unit": "cup", "item": "salsa" },
+      { "qty": 0.25, "unit": "cup", "item": "sour cream" }
+    ],
+    "instructions": [
+      "Brown the ground beef in a skillet over medium heat.",
+      "Drain excess grease.",
+      "Add taco seasoning and water.",
+      "Simmer until thickened.",
+      "Serve in tortillas with cheese, lettuce, salsa, and sour cream."
+    ]
+  },
+  {
+    "id": "saturday-pancakes",
+    "title": "Saturday Pancakes",
+    "category": "Breakfast",
+    "servings": 4,
+    "prepTime": 10,
+    "cookTime": 15,
+    "totalTime": 25,
+    "source": "",
+    "ingredients": [
+      { "qty": 1.5, "unit": "cups", "item": "flour" },
+      { "qty": 3.5, "unit": "tsp", "item": "baking powder" },
+      { "qty": 1, "unit": "tbsp", "item": "sugar" },
+      { "qty": 0.25, "unit": "tsp", "item": "salt" },
+      { "qty": 1.25, "unit": "cups", "item": "milk" },
+      { "qty": 1, "unit": "", "item": "egg" },
+      { "qty": 3, "unit": "tbsp", "item": "melted butter" }
+    ],
+    "instructions": [
+      "Whisk dry ingredients together.",
+      "Add milk, egg, and melted butter.",
+      "Stir until just combined.",
+      "Cook on a warm griddle until bubbles form.",
+      "Flip and cook until golden."
+    ]
+  },
+  {
+    "id": "creamy-chicken-alfredo",
+    "title": "Creamy Chicken Alfredo",
+    "category": "Dinner",
+    "servings": 6,
+    "prepTime": 15,
+    "cookTime": 25,
+    "totalTime": 40,
+    "source": "",
+    "ingredients": [
+      { "qty": 1.5, "unit": "lb", "item": "chicken breast" },
+      { "qty": 16, "unit": "oz", "item": "fettuccine noodles" },
+      { "qty": 2, "unit": "tbsp", "item": "olive oil" },
+      { "qty": 3, "unit": "cloves", "item": "garlic" },
+      { "qty": 2, "unit": "cups", "item": "heavy cream" },
+      { "qty": 1, "unit": "cup", "item": "parmesan cheese" },
+      { "qty": 2, "unit": "tbsp", "item": "butter" },
+      { "qty": 1, "unit": "tsp", "item": "salt" },
+      { "qty": 0.5, "unit": "tsp", "item": "black pepper" }
+    ],
+    "instructions": [
+      "Cook pasta according to package instructions.",
+      "Season and cook chicken in olive oil until done.",
+      "Remove chicken and slice.",
+      "Melt butter and sauté garlic.",
+      "Add cream and parmesan.",
+      "Simmer until thickened.",
+      "Toss pasta with sauce and serve with chicken."
+    ]
+  },
+  {
+    "id": "chocolate-chip-cookies",
+    "title": "Chocolate Chip Cookies",
+    "category": "Dessert",
+    "servings": 24,
+    "prepTime": 15,
+    "cookTime": 12,
+    "totalTime": 27,
+    "source": "",
+    "ingredients": [
+      { "qty": 1, "unit": "cup", "item": "butter" },
+      { "qty": 0.75, "unit": "cup", "item": "brown sugar" },
+      { "qty": 0.75, "unit": "cup", "item": "white sugar" },
+      { "qty": 2, "unit": "", "item": "eggs" },
+      { "qty": 2, "unit": "tsp", "item": "vanilla extract" },
+      { "qty": 2.25, "unit": "cups", "item": "flour" },
+      { "qty": 1, "unit": "tsp", "item": "baking soda" },
+      { "qty": 1, "unit": "tsp", "item": "salt" },
+      { "qty": 2, "unit": "cups", "item": "chocolate chips" }
+    ],
+    "instructions": [
+      "Cream butter and sugars together.",
+      "Beat in eggs and vanilla.",
+      "Mix dry ingredients separately.",
+      "Combine wet and dry ingredients.",
+      "Fold in chocolate chips.",
+      "Bake at 350°F for 10 to 12 minutes."
+    ]
+  },
+  {
+    "id": "slow-cooker-chili",
+    "title": "Slow Cooker Chili",
+    "category": "Dinner",
+    "servings": 8,
+    "prepTime": 20,
+    "cookTime": 360,
+    "totalTime": 380,
+    "source": "",
+    "ingredients": [
+      { "qty": 2, "unit": "lb", "item": "ground beef" },
+      { "qty": 1, "unit": "", "item": "onion" },
+      { "qty": 2, "unit": "cans", "item": "kidney beans" },
+      { "qty": 2, "unit": "cans", "item": "diced tomatoes" },
+      { "qty": 1, "unit": "can", "item": "tomato sauce" },
+      { "qty": 2, "unit": "tbsp", "item": "chili powder" },
+      { "qty": 1, "unit": "tsp", "item": "cumin" },
+      { "qty": 1, "unit": "tsp", "item": "salt" },
+      { "qty": 0.5, "unit": "tsp", "item": "black pepper" }
+    ],
+    "instructions": [
+      "Brown ground beef with onion.",
+      "Drain grease.",
+      "Add all ingredients to slow cooker.",
+      "Cook on low for 6 hours.",
+      "Serve with cheese, sour cream, or cornbread."
+    ]
+  }
+]

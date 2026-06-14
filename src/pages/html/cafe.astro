@@ -7,26 +7,728 @@ const base = import.meta.env.BASE_URL;
   <section class="page-hero cafe-hero">
     <div class="hero-content">
       <p class="eyebrow">Estes Cafe</p>
-      <h1>Estes Cafe</h1>
+      <h1>Estes Family Cookbook</h1>
       <p class="hero-subtitle">
-        Coffee, food, ideas, and whatever this eventually turns into.
+        Family recipes, weekly meal planning, and grocery lists.
       </p>
     </div>
   </section>
 
-  <main class="simple-page">
-    <section class="card work-in-progress-card">
-      <p class="eyebrow">Work In Progress</p>
+  <main class="cafe-page">
+    <aside class="cafe-sidebar card">
+      <p class="eyebrow">Weekly Cart</p>
 
-      <h2>This page is currently under construction.</h2>
+      <div class="weekly-cart-content">
+        <h2>Meal Plan</h2>
+        <div id="cartRecipes" class="cart-recipes"></div>
 
-      <p>
-        The Estes Cafe is our recipes that we love and are exploring as we grow our family.
-      </p>
+        <button id="clearCartBtn" type="button">Clear Weekly Cart</button>
 
-      <p>
-        For now, this section of the site is still being worked on.
-      </p>
+        <hr />
+
+        <h3>Shopping List</h3>
+        <ul id="shoppingList" class="shopping-list"></ul>
+      </div>
+    </aside>
+
+    <section class="cafe-main">
+      <section class="card cafe-controls">
+        <p class="eyebrow">Cookbook Tools</p>
+        <h2>Find a recipe</h2>
+
+        <div class="cafe-actions">
+          <input id="recipeSearch" type="search" placeholder="Search recipes..." />
+
+          <select id="categoryFilter">
+            <option value="">All Categories</option>
+          </select>
+
+          <button id="randomRecipeBtn" type="button">Random Recipe</button>
+        </div>
+
+        <div id="randomRecipeSpot" class="random-recipe"></div>
+      </section>
+
+      <section class="card">
+        <p class="eyebrow">Recipes</p>
+        <h2>Family Favorites</h2>
+        <div id="recipeList" class="recipe-tile-grid"></div>
+      </section>
+
+      <section class="card add-recipe-card">
+        <p class="eyebrow">Add Recipe</p>
+        <h2>Add to the cookbook</h2>
+
+        <form id="addRecipeForm" class="recipe-form">
+          <input id="newTitle" placeholder="Recipe title" required />
+
+          <div class="category-selector">
+            <p class="eyebrow">Categories</p>
+            <div id="newCategories" class="category-tags"></div>
+          </div> 
+
+          <input
+            id="newServings"
+            type="number"
+            min="1"
+            value="4"
+            placeholder="Servings"
+            required
+          />
+
+          <div class="time-grid">
+            <input
+              id="newPrepTime"
+              type="number"
+              min="0"
+              value="0"
+              placeholder="Prep time minutes"
+            />
+
+            <input
+              id="newCookTime"
+              type="number"
+              min="0"
+              value="0"
+              placeholder="Cook time minutes"
+            />
+
+            <input
+              id="newTotalTime"
+              type="number"
+              readonly
+              placeholder="Total time"
+            />
+          </div>
+
+          <textarea
+            id="newIngredients"
+            placeholder="Ingredients, one per line. Example: 2 cups flour"
+            required
+          ></textarea>
+
+          <textarea
+            id="newInstructions"
+            placeholder="Instructions, one step per line"
+            required
+          ></textarea>
+
+          <input id="newSource" placeholder="Optional source URL" type="url" />
+
+          <button id="addRecipeSubmitBtn" type="submit">Add Recipe</button>
+        </form>
+      </section>
+
+      <section class="card import-card">
+        <p class="eyebrow">Import</p>
+        <h2>Import from a recipe link</h2>
+
+        <p>
+          Recipe-link importing will eventually need a small backend or
+          serverless function. Static browser-only scraping is blocked by many
+          recipe sites.
+        </p>
+
+        <div class="recipe-form">
+          <input id="importUrl" type="url" placeholder="Paste recipe URL" />
+          <button id="importRecipeBtn" type="button">Try Import</button>
+        </div>
+
+        <p id="importMessage" class="small-note"></p>
+      </section>
     </section>
   </main>
+
+  <dialog id="recipeModal" class="recipe-modal">
+    <article class="recipe-modal-card">
+      <button id="closeRecipeModal" class="modal-close" type="button">×</button>
+      <div id="recipeModalContent"></div>
+    </article>
+  </dialog>
+
+  <script>
+    // @ts-nocheck
+    import {
+      db,
+      collection,
+      getDocs,
+      addDoc,
+      deleteDoc,
+      doc,
+      serverTimestamp,
+      query,
+      orderBy
+    } from "../../lib/firebase";
+
+    const categories = [
+      "Breakfast",
+      "Lunch",
+      "Dinner",
+      "Dessert",
+      "Snack",
+      "Appetizer",
+      "Side Dish",
+      "Soup",
+      "Salad",
+      "Bread",
+      "Sauce",
+      "Drink",
+      "Holiday",
+      "Other"
+    ];
+
+    let recipes = [];
+    let cart = JSON.parse(localStorage.getItem("estesMealCart") || "[]");
+
+    cart = cart.map(item => {
+      if (typeof item === "string") {
+        return { recipeId: item, batches: 1 };
+      }
+
+      return {
+        recipeId: item.recipeId,
+        batches: Number(item.batches || 1)
+      };
+    });
+
+    const recipeList = document.getElementById("recipeList");
+    const shoppingList = document.getElementById("shoppingList");
+    const cartRecipes = document.getElementById("cartRecipes");
+    const searchInput = document.getElementById("recipeSearch");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const newCategoriesContainer = document.getElementById("newCategories");   
+    const recipeModal = document.getElementById("recipeModal");
+    const recipeModalContent = document.getElementById("recipeModalContent");
+    const addRecipeSubmitBtn = document.getElementById("addRecipeSubmitBtn");
+
+    categories.forEach(category => {
+      categoryFilter.insertAdjacentHTML(
+        "beforeend",
+        `<option value="${category}">${category}</option>`
+      );
+
+      newCategoriesContainer.insertAdjacentHTML(
+        "beforeend",
+        `
+          <button
+            type="button"
+            class="category-tag"
+            data-category="${category}"
+          >
+            ${category}
+          </button>
+        `
+      );
+    });
+
+    newCategoriesContainer.addEventListener("click", event => {
+      const tag = event.target.closest(".category-tag");
+
+      if (!tag) return;
+
+      tag.classList.toggle("selected");
+    });
+
+    async function loadRecipes() {
+      try {
+        const recipesQuery = query(
+          collection(db, "recipes"),
+          orderBy("title", "asc")
+        );
+
+        const snapshot = await getDocs(recipesQuery);
+
+        recipes = snapshot.docs.map(docSnap => ({
+          firestoreId: docSnap.id,
+          ...docSnap.data()
+        }));
+
+        renderRecipes();
+        renderCart();
+      } catch (error) {
+        recipeList.innerHTML =
+          "<p>Could not load recipes right now. Check your Firestore setup.</p>";
+        console.error(error);
+      }
+    }
+
+    async function saveRecipe(recipe) {
+      await addDoc(collection(db, "recipes"), {
+        ...recipe,
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      });
+    }
+
+    async function deleteRecipe(recipe) {
+      if (!recipe.firestoreId) {
+        alert("This recipe is missing its Firestore document ID and cannot be deleted.");
+        console.error("Missing firestoreId:", recipe);
+        return;
+      }
+
+      const confirmed = confirm(`Delete "${recipe.title}"?`);
+
+      if (!confirmed) return;
+
+      await deleteDoc(doc(db, "recipes", recipe.firestoreId));
+
+      cart = cart.filter(item => item.recipeId !== recipe.id);
+      saveCart();
+
+      recipeModal.close();
+      await loadRecipes();
+    }
+
+    function saveCart() {
+      localStorage.setItem("estesMealCart", JSON.stringify(cart));
+    }
+
+    function slugify(value) {
+      return value
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+    }
+
+    function dedupeRecipes(recipeArray) {
+      const seen = new Set();
+
+      return recipeArray.filter(recipe => {
+        const key = recipe.title.toLowerCase().trim();
+
+        if (seen.has(key)) return false;
+
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function getRecipeCategories(recipe) {
+      return recipe.categories || [recipe.category].filter(Boolean);
+    }
+
+    function formatTime(minutes) {
+      const value = Number(minutes || 0);
+
+      if (value < 60) return `${value} min`;
+
+      const hours = Math.floor(value / 60);
+      const remainingMinutes = value % 60;
+
+      return remainingMinutes
+        ? `${hours} hr ${remainingMinutes} min`
+        : `${hours} hr`;
+    }
+
+    function scaleIngredient(ingredient, batchMultiplier = 1) {
+      if (typeof ingredient.qty !== "number") {
+        return `${ingredient.qty || ""} ${ingredient.unit || ""} ${ingredient.item}`.trim();
+      }
+
+      const scaledQty = Math.round(ingredient.qty * batchMultiplier * 100) / 100;
+
+      return `${scaledQty} ${ingredient.unit || ""} ${ingredient.item}`.trim();
+    }
+
+    function addRecipeToCart(recipeId) {
+      const existing = cart.find(item => item.recipeId === recipeId);
+
+      if (existing) {
+        existing.batches += 1;
+      } else {
+        cart.push({ recipeId, batches: 1 });
+      }
+
+      saveCart();
+      renderCart();
+    }
+
+    function renderRecipes() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+
+      const filteredRecipes = recipes.filter(recipe => {
+        const recipeCategories = getRecipeCategories(recipe);
+
+        const matchesSearch = `${recipe.title} ${recipeCategories.join(" ")}`
+          .toLowerCase()
+          .includes(searchTerm);
+
+        const matchesCategory =
+          !selectedCategory || recipeCategories.includes(selectedCategory);
+
+        return matchesSearch && matchesCategory;
+      });
+
+      recipeList.innerHTML = filteredRecipes
+        .map(recipe => {
+          const recipeCategories = getRecipeCategories(recipe);
+          const totalTime =
+            recipe.totalTime ||
+            Number(recipe.prepTime || 0) + Number(recipe.cookTime || 0);
+
+          return `
+            <article class="recipe-tile" data-open="${recipe.id}">
+              <div class="recipe-tag-row">
+                ${recipeCategories.map(category => `<span>${category}</span>`).join("")}
+              </div>
+
+              <h3>${recipe.title}</h3>
+
+              <div class="recipe-tile-meta">
+                <span>${recipe.servings} servings</span>
+                <span>${formatTime(totalTime)}</span>
+              </div>
+
+              <button
+                class="add-week-btn"
+                type="button"
+                data-add-tile="${recipe.id}"
+              >
+                Add to Weekly Cart
+              </button>
+            </article>
+          `;
+        })
+        .join("");
+
+      document.querySelectorAll("[data-open]").forEach(tile => {
+        tile.addEventListener("click", event => {
+          if (event.target.closest(".add-week-btn")) return;
+
+          const recipe = recipes.find(
+            r => r.id === event.currentTarget.dataset.open
+          );
+
+          openRecipeModal(recipe);
+        });
+      });
+
+      document.querySelectorAll("[data-add-tile]").forEach(button => {
+        button.addEventListener("click", event => {
+          addRecipeToCart(event.currentTarget.dataset.addTile);
+        });
+      });
+    }
+
+    function openRecipeModal(recipe) {
+      const recipeCategories = getRecipeCategories(recipe);
+      const totalTime =
+        recipe.totalTime ||
+        Number(recipe.prepTime || 0) + Number(recipe.cookTime || 0);
+
+      recipeModalContent.innerHTML = `
+        <div class="recipe-tag-row">
+          ${recipeCategories.map(category => `<span>${category}</span>`).join("")}
+        </div>
+
+        <h2>${recipe.title}</h2>
+
+        <div class="recipe-detail-meta">
+          <span>${recipe.servings} servings</span>
+          <span>Prep: ${formatTime(recipe.prepTime || 0)}</span>
+          <span>Cook: ${formatTime(recipe.cookTime || 0)}</span>
+          <span>Total: ${formatTime(totalTime)}</span>
+        </div>
+
+        <div class="batch-controls">
+          <p class="eyebrow">Preview Batch Size</p>
+          <button type="button" data-batch="1">1 Batch</button>
+          <button type="button" data-batch="2">2 Batches</button>
+          <button type="button" data-batch="3">3 Batches</button>
+          <input id="customBatchInput" type="number" min="0.25" step="0.25" value="1" />
+        </div>
+
+        <button type="button" data-add-modal="${recipe.id}">Add to Weekly Cart</button>
+
+        <h3>Ingredients</h3>
+        <ul id="modalIngredientList">
+          ${recipe.ingredients.map(item => `<li>${scaleIngredient(item, 1)}</li>`).join("")}
+        </ul>
+
+        <h3>Instructions</h3>
+        <ol>
+          ${recipe.instructions.map(step => `<li>${step}</li>`).join("")}
+        </ol>
+
+        ${
+          recipe.source
+            ? `<p><a href="${recipe.source}" target="_blank" rel="noreferrer">Original Recipe</a></p>`
+            : ""
+        }
+
+        <button type="button" class="delete-recipe-btn" data-delete-recipe="${recipe.id}">
+          Delete Recipe
+        </button>
+      `;
+
+      function updateIngredients(multiplier) {
+        document.getElementById("modalIngredientList").innerHTML = recipe.ingredients
+          .map(item => `<li>${scaleIngredient(item, multiplier)}</li>`)
+          .join("");
+      }
+
+      document.querySelectorAll("[data-batch]").forEach(button => {
+        button.addEventListener("click", event => {
+          const multiplier = Number(event.target.dataset.batch);
+          document.getElementById("customBatchInput").value = multiplier;
+          updateIngredients(multiplier);
+        });
+      });
+
+      document.getElementById("customBatchInput").addEventListener("input", event => {
+        updateIngredients(Number(event.target.value || 1));
+      });
+
+      document.querySelector("[data-add-modal]").addEventListener("click", event => {
+        addRecipeToCart(event.target.dataset.addModal);
+      });
+
+      document.querySelector("[data-delete-recipe]").addEventListener("click", async () => {
+        await deleteRecipe(recipe);
+      });
+
+      recipeModal.showModal();
+    }
+
+    function renderCart() {
+      const cartRecipeObjects = cart
+        .map(item => {
+          const recipe = recipes.find(recipe => recipe.id === item.recipeId);
+          return recipe ? { ...item, recipe } : null;
+        })
+        .filter(Boolean);
+
+      cartRecipes.innerHTML = cartRecipeObjects.length
+        ? cartRecipeObjects
+            .map(({ recipe, batches }) => {
+              return `
+                <div class="cart-recipe-item">
+                  <strong>${recipe.title}</strong>
+
+                  <label>
+                    Batches:
+                    <input
+                      type="number"
+                      min="0.25"
+                      step="0.25"
+                      value="${batches}"
+                      data-cart-batch="${recipe.id}"
+                    />
+                  </label>
+
+                  <button type="button" data-remove-cart="${recipe.id}">
+                    Remove
+                  </button>
+                </div>
+              `;
+            })
+            .join("")
+        : "<p>No recipes added yet.</p>";
+
+      document.querySelectorAll("[data-cart-batch]").forEach(input => {
+        input.addEventListener("input", event => {
+          const recipeId = event.target.dataset.cartBatch;
+          const cartItem = cart.find(item => item.recipeId === recipeId);
+
+          if (cartItem) {
+            cartItem.batches = Number(event.target.value || 1);
+            saveCart();
+            renderCart();
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-remove-cart]").forEach(button => {
+        button.addEventListener("click", event => {
+          const recipeId = event.target.dataset.removeCart;
+          cart = cart.filter(item => item.recipeId !== recipeId);
+          saveCart();
+          renderCart();
+        });
+      });
+
+      const groceryMap = new Map();
+
+      cartRecipeObjects.forEach(({ recipe, batches }) => {
+        recipe.ingredients.forEach(ingredient => {
+          const key = `${ingredient.unit}|${ingredient.item}`.toLowerCase();
+          const existing = groceryMap.get(key);
+
+          const scaledQty =
+            typeof ingredient.qty === "number"
+              ? ingredient.qty * batches
+              : ingredient.qty;
+
+          if (existing && typeof scaledQty === "number") {
+            existing.qty += scaledQty;
+          } else {
+            groceryMap.set(key, {
+              ...ingredient,
+              qty: scaledQty
+            });
+          }
+        });
+      });
+
+      shoppingList.innerHTML = [...groceryMap.values()]
+        .map(ingredient => {
+          const qty =
+            typeof ingredient.qty === "number"
+              ? Math.round(ingredient.qty * 100) / 100
+              : ingredient.qty || "";
+
+          return `<li>${qty} ${ingredient.unit || ""} ${ingredient.item}</li>`;
+        })
+        .join("");
+    }
+
+    function parseIngredientLine(line) {
+      const match = line.trim().match(/^([\d./]+)?\s*([a-zA-Z]+)?\s*(.+)$/);
+
+      if (!match) return { qty: "", unit: "", item: line.trim() };
+
+      const rawQty = match[1] || "";
+      let qty = Number(rawQty);
+
+      if (rawQty.includes("/")) {
+        const [top, bottom] = rawQty.split("/").map(Number);
+        qty = top / bottom;
+      }
+
+      return {
+        qty: Number.isFinite(qty) ? qty : rawQty,
+        unit: match[2] || "",
+        item: match[3] || ""
+      };
+    }
+
+    function updateTotalTimeField() {
+      const prepEl = document.getElementById("newPrepTime");
+      const cookEl = document.getElementById("newCookTime");
+      const totalEl = document.getElementById("newTotalTime");
+
+      const prep = Number((prepEl && prepEl.value) || 0);
+      const cook = Number((cookEl && cookEl.value) || 0);
+
+      if (totalEl) totalEl.value = prep + cook;
+    }
+
+    const _prepEl = document.getElementById("newPrepTime");
+    const _cookEl = document.getElementById("newCookTime");
+
+    if (_prepEl) _prepEl.addEventListener("input", updateTotalTimeField);
+    if (_cookEl) _cookEl.addEventListener("input", updateTotalTimeField);
+
+    document.getElementById("addRecipeForm").addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const title = document.getElementById("newTitle").value.trim();
+
+      const duplicate = recipes.some(
+        recipe => recipe.title.toLowerCase().trim() === title.toLowerCase()
+      );
+
+      if (duplicate) {
+        alert("That recipe already exists.");
+        return;
+      }
+
+      const selectedCategories = [
+        ...document.querySelectorAll(".category-tag.selected")
+      ].map(tag => tag.dataset.category);
+
+      if (!selectedCategories.length) {
+        alert("Please select at least one category.");
+        return;
+      }
+
+      const prepTime = Number(document.getElementById("newPrepTime").value || 0);
+      const cookTime = Number(document.getElementById("newCookTime").value || 0);
+
+      const recipe = {
+        id: slugify(title),
+        title,
+        categories: selectedCategories,
+        servings: Number(document.getElementById("newServings").value),
+        prepTime,
+        cookTime,
+        totalTime: prepTime + cookTime,
+        source: document.getElementById("newSource").value.trim(),
+        ingredients: document
+          .getElementById("newIngredients")
+          .value.split("\n")
+          .filter(Boolean)
+          .map(parseIngredientLine),
+        instructions: document
+          .getElementById("newInstructions")
+          .value.split("\n")
+          .filter(Boolean)
+      };
+
+      try {
+        addRecipeSubmitBtn.disabled = true;
+        addRecipeSubmitBtn.textContent = "Saving...";
+
+        await saveRecipe(recipe);
+        await loadRecipes();
+
+        event.target.reset();
+
+        document
+          .querySelectorAll(".category-tag.selected")
+          .forEach(tag => tag.classList.remove("selected"));
+
+        updateTotalTimeField();
+      } catch (error) {
+        alert("Could not save recipe.");
+        console.error(error);
+      } finally {
+        addRecipeSubmitBtn.disabled = false;
+        addRecipeSubmitBtn.textContent = "Add Recipe";
+      }
+    });
+
+    document.getElementById("randomRecipeBtn").addEventListener("click", () => {
+      const recipe = recipes[Math.floor(Math.random() * recipes.length)];
+
+      document.getElementById("randomRecipeSpot").innerHTML = `
+        <p>Try this this week:</p>
+        <h3>${recipe.title}</h3>
+        <button type="button" id="openRandomRecipe">View Recipe</button>
+        <button type="button" id="addRandomRecipe">Add to Weekly Cart</button>
+      `;
+
+      document.getElementById("openRandomRecipe").addEventListener("click", () => {
+        openRecipeModal(recipe);
+      });
+
+      document.getElementById("addRandomRecipe").addEventListener("click", () => {
+        addRecipeToCart(recipe.id);
+      });
+    });
+
+    document.getElementById("clearCartBtn").addEventListener("click", () => {
+      cart = [];
+      saveCart();
+      renderCart();
+    });
+
+    document.getElementById("closeRecipeModal").addEventListener("click", () => {
+      recipeModal.close();
+    });
+
+    document.getElementById("importRecipeBtn").addEventListener("click", () => {
+      document.getElementById("importMessage").textContent =
+        "Recipe-link importing will need a small backend or serverless function.";
+    });
+
+    searchInput.addEventListener("input", renderRecipes);
+    categoryFilter.addEventListener("change", renderRecipes);
+
+    updateTotalTimeField();
+    loadRecipes();
+  </script>
 </BaseLayout>
