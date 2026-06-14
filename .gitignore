@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+src/lib/firebase.js
 
 # build output
 dist/
